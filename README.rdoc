@@ -1,0 +1,67 @@
+= gitview - Summary information and stats on a local git repository
+
+== Introduction
+
+Sometimes it's nice to see a terminal screen's worth of stats about a 
+git repo without having to type a bunch of git commands or even look up
+specifics about said git commands. gitview was created to scratch this
+particular itch (and also help me learn about making my own Gems). Hopefully,
+you will find it helpful. 
+
+== Installation
+
+    gem install gitview
+
+To upgrade to the latest version: <tt>gem update gitview</tt>
+
+== Usage
+
+Here's an example using the local copy of my gitview repo:
+
+user1@host $: cd ~/my-gitrepos/gitview
+
+user1@host $: gitview
+
+------------------------------------------------------------------------
+Repository: gitview - (git version 1.9.3)
+------------------------------------------------------------------------
+
+?? README.rdocRepo status: Current
+
+Total number of files: 11
+
+Repo user name: Rick Crelia
+Repo user email: rcrelia@gmail.com
+
+Remote repo(s):
+origin	git@github.com:rcrelia/gitview.git (fetch)
+origin	git@github.com:rcrelia/gitview.git (push)
+
+Number of non-master branches: 0
+
+Total number of commits: 4
+  Oldest commit on: 2014-12-08 12:25:09 -0800
+  Newest commit on: 2014-12-08 13:26:40 -0800
+
+Most changed files:
+  2 gitview.gemspec
+  2 Changelog.md
+  2 README.md
+
+Least changed files:
+  1 lib/gitview.rb
+  1 spec/gitvew.spec
+  1 spec_helper.rb
+
+Most active committers:
+     4	Rick Crelia
+
+
+
+------------------------------------------------------------------------
+
+
+== Development
+
+Send patches to rcrelia.github@gmail.com, or fork the project on GitHub and 
+send me a pull request. 
