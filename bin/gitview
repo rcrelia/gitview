@@ -1,0 +1,47 @@
+#!/usr/bin/env ruby
+
+### Author::Rick Crelia
+### Email::rcrelia@gmail.com
+
+#$LOAD_PATH.unshift("#{File.dirname(__FILE__)}/../lib")
+require 'gitview'
+
+@g = Gitview.new
+
+# check if there's a repo and bail if there isn't one
+@g.repo_exists?
+
+system "clear"
+
+puts "------------------------------------------------------------------------"
+puts "Repository: #{@g.repo_name} - (#{@g.git_version}) "
+puts "------------------------------------------------------------------------"
+puts ""
+puts "Repo status: #{@g.repo_status}"
+puts ""
+puts "Total number of files: #{@g.repo_files}"
+puts ""
+puts "Repo user name: #{@g.repo_user}"
+puts "Repo user email: #{@g.repo_email}"
+puts ""
+puts "Remote repo(s):"
+@g.repo_remotes
+puts ""
+puts "Number of non-master branches: #{@g.repo_branches}"
+puts ""
+@g.repo_commits
+puts "Total number of commits: #{@g.repo_commits}"
+puts "  Oldest commit on: #{@g.repo_firstcommit}"
+puts "  Newest commit on: #{@g.repo_lastcommit}"
+puts ""
+puts "Most changed files: "
+@g.repo_mostchanged.each { |k,v| puts "  #{v} #{k}" }
+puts ""
+puts "Least changed files: "
+@g.repo_leastchanged.each { |k,v|  puts "  #{v} #{k}" }
+puts ""
+puts "Most active committers:"
+@g.repo_committers.each { |c| puts "#{c}" }
+puts ""
+puts "------------------------------------------------------------------------"
+

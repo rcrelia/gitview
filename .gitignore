@@ -1,0 +1,6 @@
+*.gem
+*.tmp
+*.swp
+*.dni
+.rspec
+*.test.rb
