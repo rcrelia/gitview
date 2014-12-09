@@ -1,5 +1,7 @@
 # gitview 
 
+[![Gem Version](https://badge.fury.io/rb/gitview.svg)](http://badge.fury.io/rb/gitview)
+
 [![Build Status](https://travis-ci.org/rcrelia/gitview.svg?branch=master)](https://travis-ci.org/rcrelia/gitview)
 
 ## Description
@@ -73,7 +75,7 @@ send me a pull request.
 
 ## Authors
 
-Author:: Rick Crelia @rcrelia<br>
+Author:: Rick Crelia<br>
 
 ## License
 

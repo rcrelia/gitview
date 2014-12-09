@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
   s.requirements = ['git 1.9.0.0, or greater']
   s.require_paths = ['lib']
   s.summary     = 'Summary information and stats on a local git repository'
-  s.version     = '0.1.0'
+  s.version     = '0.1.1'
 
   s.add_development_dependency 'rake',  '~> 10.4'
   s.add_development_dependency 'rspec', '~> 3.1'
