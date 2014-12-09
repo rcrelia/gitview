@@ -5,4 +5,4 @@ rvm:
   - "1.9.3"
   - "2.1.5"
 
-script: bundle exec rspec rake
+script: bundle exec rspec
