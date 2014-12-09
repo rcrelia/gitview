@@ -14,6 +14,9 @@ you will find it helpful.
 
 To upgrade to the latest version: <tt>gem update gitview</tt>
 
+This was developed on OS X 10.9.2 and has been tested on travis-ci. As
+with most things, ymmv.
+
 == Usage
 
 Here's an example using the local copy of my gitview repo:
