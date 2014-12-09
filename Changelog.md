@@ -5,7 +5,7 @@
   directory
 
 ## Released
-## v0.0.3 / 2014-12-08
+## v0.0.4 / 2014-12-08
 * Fixes to get successful travis-ci builds
 
 ## Released
