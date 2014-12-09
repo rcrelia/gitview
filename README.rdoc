@@ -1,4 +1,4 @@
-= gitview - Summary information and stats on a local git repository
+= gitview 
 
 == Introduction
 
