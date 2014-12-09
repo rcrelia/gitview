@@ -1,6 +1,6 @@
 = gitview 
 
-[![Build Status](https://travis-ci.org/rcrelia/gitview.svg?branch=master)](https://travis-ci.org/rcrelia/gitview.svg?branch=master)
+{<img src="https://travis-ci.org/rcrelia/gitview.svg?branch=master />} [https://travis-ci.org/rcrelia/gitview.svg?branch=master]
 
 == Introduction
 
