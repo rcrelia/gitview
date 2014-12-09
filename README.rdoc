@@ -31,7 +31,7 @@ Here's an example using the local copy of my gitview repo:
   Total number of files: 11
 
   Repo user name: Rick Crelia
-  Repo user email: rcrelia@gmail.com
+  Repo user email: rcrelia.github@gmail.com
 
   Remote repo(s):
     origin	git@github.com:rcrelia/gitview.git (fetch)
