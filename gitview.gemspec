@@ -30,7 +30,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'http://rubygems.org/gems/gitview'
   s.license     = 'Apache License, v2.0'
 
-  s.add_development_dependency 'bundler', '~> 1.6'
-  s.add_development_dependency 'rake',  '~> 10.3'
-  s.add_development_dependency 'rspec', '~> 2.14'
+  s.add_development_dependency 'bundler', '~> 1.6.2'
+  s.add_development_dependency 'rake',  '~> 10.3.2'
+  s.add_development_dependency 'rspec', '~> 2.14.8'
 end
