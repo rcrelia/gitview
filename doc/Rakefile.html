@@ -83,6 +83,42 @@
   
     <li><a href="./doc/Rakefile_html.html">Rakefile.html</a>
   
+    <li><a href="./doc/doc/Changelog_md_html_html.html">Changelog_md_html.html</a>
+  
+    <li><a href="./doc/doc/Gemfile_html_html.html">Gemfile_html.html</a>
+  
+    <li><a href="./doc/doc/Gitview_html_html.html">Gitview_html.html</a>
+  
+    <li><a href="./doc/doc/LICENSE_html_html.html">LICENSE_html.html</a>
+  
+    <li><a href="./doc/doc/README_rdoc_html_html.html">README_rdoc_html.html</a>
+  
+    <li><a href="./doc/doc/Rakefile_html_html.html">Rakefile_html.html</a>
+  
+    <li><a href="./doc/doc/fonts_css_html.html">fonts_css.html</a>
+  
+    <li><a href="./doc/doc/gitview_gemspec_html_html.html">gitview_gemspec_html.html</a>
+  
+    <li><a href="./doc/doc/index_html_html.html">index_html.html</a>
+  
+    <li><a href="./doc/doc/js/darkfish_js_html.html">darkfish_js.html</a>
+  
+    <li><a href="./doc/doc/js/jquery_js_html.html">jquery_js.html</a>
+  
+    <li><a href="./doc/doc/js/navigation_js_html.html">navigation_js.html</a>
+  
+    <li><a href="./doc/doc/js/search_index_js_html.html">search_index_js.html</a>
+  
+    <li><a href="./doc/doc/js/search_js_html.html">search_js.html</a>
+  
+    <li><a href="./doc/doc/js/searcher_js_html.html">searcher_js.html</a>
+  
+    <li><a href="./doc/doc/rdoc_css_html.html">rdoc_css.html</a>
+  
+    <li><a href="./doc/doc/spec/gitvew_spec_html_html.html">gitvew_spec_html.html</a>
+  
+    <li><a href="./doc/doc/table_of_contents_html_html.html">table_of_contents_html.html</a>
+  
     <li><a href="./doc/fonts_css.html">fonts.css</a>
   
     <li><a href="./doc/gitview_gemspec_html.html">gitview_gemspec.html</a>
@@ -109,8 +145,6 @@
   
     <li><a href="./gitview_gemspec.html">gitview.gemspec</a>
   
-    <li><a href="./spec/gitvew_spec.html">gitvew.spec</a>
-  
   </ul>
 </div>
 
@@ -121,9 +155,12 @@
 
 <p>require &#39;rspec/core/rake_task&#39;</p>
 
-<p>RSpec::Core::RakeTask.new(&#39;spec&#39;)</p>
+<p>task :default do</p>
 
-<p>task :default =&gt; :spec</p>
+<pre>RSpec::Core::RakeTask.new(:spec)
+Rake::Task[&quot;spec&quot;].execute</pre>
+
+<p>end</p>
 </main>
 
 
