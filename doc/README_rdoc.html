@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>README - RDoc Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-gitview+-+Summary+information+and+stats+on+a+local+git+repository">gitview - Summary information and stats on a local git repository</a>
+    <li><a href="#label-Introduction">Introduction</a>
+    <li><a href="#label-Installation">Installation</a>
+    <li><a href="#label-Usage">Usage</a>
+    <li><a href="#label-Development">Development</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Changelog_md.html">Changelog</a>
+  
+    <li><a href="./Gemfile.html">Gemfile</a>
+  
+    <li><a href="./LICENSE.html">LICENSE</a>
+  
+    <li><a href="./README_rdoc.html">README</a>
+  
+    <li><a href="./Rakefile.html">Rakefile</a>
+  
+    <li><a href="./gitview_gemspec.html">gitview.gemspec</a>
+  
+    <li><a href="./spec/gitvew_spec.html">gitvew.spec</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page README.rdoc">
+
+<h1 id="label-gitview+-+Summary+information+and+stats+on+a+local+git+repository">gitview - Summary information and stats on a local git repository<span><a href="#label-gitview+-+Summary+information+and+stats+on+a+local+git+repository">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+
+<h2 id="label-Introduction">Introduction<span><a href="#label-Introduction">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Sometimes it&#39;s nice to see a terminal screen&#39;s worth of stats about
+a  git repo without having to type a bunch of git commands or even look up
+specifics about said git commands. gitview was created to scratch this
+particular itch (and also help me learn about making my own Gems).
+Hopefully, you will find it helpful.</p>
+
+<h2 id="label-Installation">Installation<span><a href="#label-Installation">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<pre>gem install gitview</pre>
+
+<p>To upgrade to the latest version: <code>gem update gitview</code></p>
+
+<h2 id="label-Usage">Usage<span><a href="#label-Usage">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Here&#39;s an example using the local copy of my gitview repo:</p>
+
+<p>user1@host $: cd ~/my-gitrepos/gitview</p>
+
+<p>user1@host $: gitview</p>
+<hr>
+
+<p>Repository: gitview - (git version 1.9.3)</p>
+<hr>
+
+<p>Repo status: Current</p>
+
+<p>Total number of files: 11</p>
+
+<p>Repo user name: Rick Crelia Repo user email: rcrelia@gmail.com</p>
+
+<p>Remote repo(s): origin  git@github.com:rcrelia/gitview.git (fetch) origin 
+git@github.com:rcrelia/gitview.git (push)</p>
+
+<p>Number of non-master branches: 0</p>
+
+<p>Total number of commits: 6</p>
+
+<pre>Oldest commit on: 2014-12-08 12:25:09 -0800
+Newest commit on: 2014-12-08 16:00:18 -0800</pre>
+
+<p>Most changed files:</p>
+
+<pre>3 README.md
+2 README.rdoc
+2 gitview.gemspec</pre>
+
+<p>Least changed files:</p>
+
+<pre>1 lib/gitview.rb
+1 spec/gitvew.spec
+1 spec_helper.rb</pre>
+
+<p>Most active committers:</p>
+
+<pre>6  Rick Crelia</pre>
+<hr>
+
+<h2 id="label-Development">Development<span><a href="#label-Development">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Send patches to rcrelia.github@gmail.com, or fork the project on GitHub and
+send me a pull request.</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
