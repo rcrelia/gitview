@@ -54,7 +54,7 @@ class Gitview
     global_email = `git config --global user.email`
     if local_email == ""
       @repo_email = global_email
-      @repo_email = "unset" if global_email == ""
+      @repo_email = "unset@unset" if global_email == ""
     else
       @repo_email = local_email
     end
