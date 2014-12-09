@@ -26,7 +26,7 @@ user1@host $: gitview
 Repository: gitview - (git version 1.9.3)
 ------------------------------------------------------------------------
 
-?? README.rdocRepo status: Current
+Repo status: Current
 
 Total number of files: 11
 
