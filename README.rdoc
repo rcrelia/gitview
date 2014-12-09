@@ -1,5 +1,7 @@
 = gitview 
 
+[![Build Status](https://travis-ci.org/rcrelia/gitview.svg?branch=master)](https://travis-ci.org/rcrelia/gitview.svg?branch=master)
+
 == Introduction
 
 Sometimes it's nice to see a terminal screen's worth of stats about a 
