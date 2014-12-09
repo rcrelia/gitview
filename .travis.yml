@@ -2,7 +2,7 @@ language: ruby
 rvm:
   - "1.9.3"
   - "2.0.0"
-  - "2.1.2p95"
+  - "2.1.2"
 
 install: bundle install --binstubs
 env: TRAVIS_BUILD=true
