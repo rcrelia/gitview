@@ -127,6 +127,10 @@
 
   <section class="description">
     
+<p>This class is used to gather git repo information using backticks or
+system(). None of the methods expects parameters to be passed into them.
+Future versions will take arguments for more extensible operation.</p>
+
   </section>
 
   
@@ -161,13 +165,13 @@
 
         <div class="method-description">
           
-          
+          <p>Get the version of git</p>
           
           
 
           
           <div class="method-source-code" id="git_version-source">
-            <pre><span class="ruby-comment"># File lib/gitview.rb, line 28</span>
+            <pre><span class="ruby-comment"># File lib/gitview.rb, line 44</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">git_version</span>
   <span class="ruby-ivar">@git_version</span> = <span class="ruby-value">%xgit --version`</span>.<span class="ruby-identifier">chomp</span>
 <span class="ruby-keyword">end</span></pre>
@@ -194,13 +198,13 @@
 
         <div class="method-description">
           
-          
+          <p>Count branches of the repository.</p>
           
           
 
           
           <div class="method-source-code" id="repo_branches-source">
-            <pre><span class="ruby-comment"># File lib/gitview.rb, line 71</span>
+            <pre><span class="ruby-comment"># File lib/gitview.rb, line 106</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">repo_branches</span>
   <span class="ruby-identifier">branches</span> = <span class="ruby-value">%xgit branch`</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/\n/</span>)
   <span class="ruby-ivar">@repo_branches</span> = <span class="ruby-identifier">branches</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">b</span> <span class="ruby-operator">!~</span> <span class="ruby-regexp">/master.*/</span> }
@@ -229,13 +233,13 @@
 
         <div class="method-description">
           
-          
+          <p>Count total commits in the master branch excluding merges.</p>
           
           
 
           
           <div class="method-source-code" id="repo_commits-source">
-            <pre><span class="ruby-comment"># File lib/gitview.rb, line 77</span>
+            <pre><span class="ruby-comment"># File lib/gitview.rb, line 115</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">repo_commits</span>
   <span class="ruby-identifier">@@repo_commits</span> = <span class="ruby-value">%xgit log master --no-merges --reverse --format=&quot;%ai&quot;`</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/\n/</span>)
   <span class="ruby-identifier">@@repo_commits</span>.<span class="ruby-identifier">count</span>
@@ -263,15 +267,15 @@
 
         <div class="method-description">
           
-          
+          <p>Use output of git shortlog -sn and truncate to array with first 3 lines to
+create a list of the 3 most active committers to the repository.</p>
           
           
 
           
           <div class="method-source-code" id="repo_committers-source">
-            <pre><span class="ruby-comment"># File lib/gitview.rb, line 110</span>
+            <pre><span class="ruby-comment"># File lib/gitview.rb, line 163</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">repo_committers</span>
-  <span class="ruby-comment"># take output of git shortlog -sn and truncate to array with first 3 lines</span>
   <span class="ruby-identifier">committers</span> = <span class="ruby-value">%xgit shortlog -sn`</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/\n/</span>)
   <span class="ruby-ivar">@repo_committers</span> = <span class="ruby-identifier">committers</span>.<span class="ruby-identifier">values_at</span>(<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">2</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -298,19 +302,20 @@
 
         <div class="method-description">
           
-          
+          <p>Determine repo user email. If unset locally and globally, “unset@unset” is
+reported.</p>
           
           
 
           
           <div class="method-source-code" id="repo_email-source">
-            <pre><span class="ruby-comment"># File lib/gitview.rb, line 52</span>
+            <pre><span class="ruby-comment"># File lib/gitview.rb, line 78</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">repo_email</span>
   <span class="ruby-identifier">local_email</span> = <span class="ruby-value">%xgit config --local user.email`</span>
   <span class="ruby-identifier">global_email</span> = <span class="ruby-value">%xgit config --global user.email`</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">local_email</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;&quot;</span>
     <span class="ruby-ivar">@repo_email</span> = <span class="ruby-identifier">global_email</span>
-    <span class="ruby-ivar">@repo_email</span> = <span class="ruby-string">&quot;unset&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">global_email</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-ivar">@repo_email</span> = <span class="ruby-string">&quot;unset@unset&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">global_email</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;&quot;</span>
   <span class="ruby-keyword">else</span>
     <span class="ruby-ivar">@repo_email</span> = <span class="ruby-identifier">local_email</span>
   <span class="ruby-keyword">end</span>
@@ -338,13 +343,14 @@
 
         <div class="method-description">
           
-          
+          <p>Checks to see if a repo exists in the current working directory. If one is
+not found, the program is aborted.</p>
           
           
 
           
           <div class="method-source-code" id="repo_exists-3F-source">
-            <pre><span class="ruby-comment"># File lib/gitview.rb, line 8</span>
+            <pre><span class="ruby-comment"># File lib/gitview.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">repo_exists?</span>
   <span class="ruby-identifier">direxists</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-string">&quot;./.git&quot;</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">direxists</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span>
@@ -381,13 +387,13 @@
 
         <div class="method-description">
           
-          
+          <p>Count files in the repository.</p>
           
           
 
           
           <div class="method-source-code" id="repo_files-source">
-            <pre><span class="ruby-comment"># File lib/gitview.rb, line 63</span>
+            <pre><span class="ruby-comment"># File lib/gitview.rb, line 92</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">repo_files</span>
   <span class="ruby-ivar">@repo_files</span> = <span class="ruby-value">%xgit ls-files`</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/\n/</span>).<span class="ruby-identifier">length</span>
 <span class="ruby-keyword">end</span></pre>
@@ -414,13 +420,13 @@
 
         <div class="method-description">
           
-          
+          <p>Identify first commit in the repository.</p>
           
           
 
           
           <div class="method-source-code" id="repo_firstcommit-source">
-            <pre><span class="ruby-comment"># File lib/gitview.rb, line 82</span>
+            <pre><span class="ruby-comment"># File lib/gitview.rb, line 123</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">repo_firstcommit</span>
   <span class="ruby-comment"># let&#39;s reuse the class variable @@repo_commits</span>
   <span class="ruby-identifier">@@repo_commits</span>.<span class="ruby-identifier">first</span>
@@ -448,13 +454,13 @@
 
         <div class="method-description">
           
-          
+          <p>Identify most recent commit in the repository.</p>
           
           
 
           
           <div class="method-source-code" id="repo_lastcommit-source">
-            <pre><span class="ruby-comment"># File lib/gitview.rb, line 87</span>
+            <pre><span class="ruby-comment"># File lib/gitview.rb, line 131</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">repo_lastcommit</span>
   <span class="ruby-comment"># let&#39;s reuse the class variable @@repo_commits</span>
   <span class="ruby-identifier">@@repo_commits</span>.<span class="ruby-identifier">last</span>
@@ -482,13 +488,15 @@
 
         <div class="method-description">
           
-          
+          <p>Identify least changed files in the repository, using the class array
+@@allchanged created by <a
+href="Gitview.html#method-i-repo_mostchanged">#repo_mostchanged</a>()</p>
           
           
 
           
           <div class="method-source-code" id="repo_leastchanged-source">
-            <pre><span class="ruby-comment"># File lib/gitview.rb, line 104</span>
+            <pre><span class="ruby-comment"># File lib/gitview.rb, line 153</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">repo_leastchanged</span>
   <span class="ruby-comment"># let&#39;s reuse our deduped array from repo_mostchanged()</span>
   <span class="ruby-identifier">lc</span> = <span class="ruby-identifier">@@allchanged</span>.<span class="ruby-identifier">first</span>(<span class="ruby-value">3</span>).<span class="ruby-identifier">reverse</span>
@@ -517,16 +525,14 @@
 
         <div class="method-description">
           
-          
+          <p>Identify most changed files in the repository</p>
           
           
 
           
           <div class="method-source-code" id="repo_mostchanged-source">
-            <pre><span class="ruby-comment"># File lib/gitview.rb, line 92</span>
+            <pre><span class="ruby-comment"># File lib/gitview.rb, line 139</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">repo_mostchanged</span>
-  <span class="ruby-comment"># here&#39;s how to do this using shell utils with system call:</span>
-  <span class="ruby-comment">#@repo_mostchanged = `git log master --pretty=format: --name-only|grep -i [a-z]|sort|uniq -c |sort -rg|head -3`</span>
   <span class="ruby-identifier">changes</span> = <span class="ruby-value">%xgit log master --pretty=format: --name-only`</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/\n/</span>)
   <span class="ruby-identifier">mostchanged</span> = <span class="ruby-identifier">changes</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/[[:alpha:]]/</span> }
   <span class="ruby-identifier">deduped</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">0</span>
@@ -558,13 +564,14 @@
 
         <div class="method-description">
           
-          
+          <p>Use the name of the current working directory as the name of the git
+repository.</p>
           
           
 
           
           <div class="method-source-code" id="repo_name-source">
-            <pre><span class="ruby-comment"># File lib/gitview.rb, line 22</span>
+            <pre><span class="ruby-comment"># File lib/gitview.rb, line 35</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">repo_name</span>
   <span class="ruby-ivar">@repo_name</span> = <span class="ruby-value">%xgit rev-parse --show-toplevel`</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;/&quot;</span>).<span class="ruby-identifier">last</span>
   <span class="ruby-ivar">@repo_name</span>.<span class="ruby-identifier">to_s</span>
@@ -593,13 +600,13 @@
 
         <div class="method-description">
           
-          
+          <p>Gather list of non-local copies of the repository.</p>
           
           
 
           
           <div class="method-source-code" id="repo_remotes-source">
-            <pre><span class="ruby-comment"># File lib/gitview.rb, line 67</span>
+            <pre><span class="ruby-comment"># File lib/gitview.rb, line 99</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">repo_remotes</span>
   <span class="ruby-ivar">@repo_remotes</span> = <span class="ruby-value">%xgit remote -v`</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/\n/</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -626,20 +633,20 @@
 
         <div class="method-description">
           
-          
+          <p>Check the repo to see if it is current or not</p>
           
           
 
           
           <div class="method-source-code" id="repo_status-source">
-            <pre><span class="ruby-comment"># File lib/gitview.rb, line 32</span>
+            <pre><span class="ruby-comment"># File lib/gitview.rb, line 51</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">repo_status</span>
   <span class="ruby-identifier">status</span> = <span class="ruby-identifier">system</span>(<span class="ruby-string">&quot;git status --porcelain -z&quot;</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;&quot;</span>
     <span class="ruby-ivar">@repo_status</span> = <span class="ruby-string">&quot;Not current!&quot;</span>
   <span class="ruby-keyword">else</span>
     <span class="ruby-ivar">@repo_status</span> = <span class="ruby-string">&quot;Current&quot;</span>
-  <span class="ruby-keyword">end</span> 
+  <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -664,13 +671,14 @@
 
         <div class="method-description">
           
-          
+          <p>Determine repo user name. If unset locally and globally, “unset” is
+reported.</p>
           
           
 
           
           <div class="method-source-code" id="repo_user-source">
-            <pre><span class="ruby-comment"># File lib/gitview.rb, line 41</span>
+            <pre><span class="ruby-comment"># File lib/gitview.rb, line 63</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">repo_user</span>
   <span class="ruby-identifier">local_user</span> = <span class="ruby-value">%xgit config --local user.name`</span>
   <span class="ruby-identifier">global_user</span> = <span class="ruby-value">%xgit config --global user.name`</span>

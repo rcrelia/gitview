@@ -1,5 +1,9 @@
 #!/usr/bin/env ruby
 
+## 
+# Driver for lib/gitview.rb
+#
+
 ### Author::Rick Crelia
 ### Email::rcrelia@gmail.com
 

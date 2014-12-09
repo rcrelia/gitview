@@ -16,19 +16,20 @@
 
 
 Gem::Specification.new do |s|
-  s.name        = 'gitview'
-  s.version     = '0.0.6'
-  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.require_paths = ['lib']
-  s.date        = '2014-12-08'
-  s.summary     = 'Summary information and stats on a local git repository'
-  s.description =  s.summary
   s.authors     = ['Rick Crelia']
+  s.date        = '2014-12-08'
+  s.description =  s.summary
   s.email       = ['rcrelia@gmail.com']
   s.executables = ['gitview']
   s.files       = ['lib/gitview.rb']
   s.homepage    = 'http://rubygems.org/gems/gitview'
   s.license     = 'Apache License, v2.0'
+  s.name        = 'gitview'
+  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
+  s.requirements = ['git 1.9.0.0, or greater']
+  s.require_paths = ['lib']
+  s.summary     = 'Summary information and stats on a local git repository'
+  s.version     = '0.1.0'
 
   s.add_development_dependency 'rake',  '~> 10.4'
   s.add_development_dependency 'rspec', '~> 3.1'
