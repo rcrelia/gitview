@@ -23,7 +23,7 @@ user1@host $: cd ~/my-gitrepos/gitview
 user1@host $: gitview
 
 ------------------------------------------------------------------------
-Repository: gitview - (git version 1.9.3)
+Repository: gitview - (git version 1.9.3) 
 ------------------------------------------------------------------------
 
 Repo status: Current
@@ -39,22 +39,22 @@ origin	git@github.com:rcrelia/gitview.git (push)
 
 Number of non-master branches: 0
 
-Total number of commits: 4
+Total number of commits: 6
   Oldest commit on: 2014-12-08 12:25:09 -0800
-  Newest commit on: 2014-12-08 13:26:40 -0800
+  Newest commit on: 2014-12-08 16:00:18 -0800
 
-Most changed files:
+Most changed files: 
+  3 README.md
+  2 README.rdoc
   2 gitview.gemspec
-  2 Changelog.md
-  2 README.md
 
-Least changed files:
+Least changed files: 
   1 lib/gitview.rb
   1 spec/gitvew.spec
   1 spec_helper.rb
 
 Most active committers:
-     4	Rick Crelia
+     6	Rick Crelia
 
 
 
