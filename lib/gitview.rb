@@ -26,7 +26,7 @@ class Gitview
   end
 
   def git_version
-    @git_version = `git --version`.chomp #needs test
+    @git_version = `git --version`.chomp
   end
 
   def repo_status
@@ -66,11 +66,9 @@ class Gitview
 
   def repo_remotes
     @repo_remotes = `git remote -v`.split(/\n/)
-    @repo_remotes.each { |r| puts "#{r}" }
-    @repo_remotes
   end
 
-  def repo_branches  # needs testing
+  def repo_branches
     branches = `git branch`.split(/\n/)
     @repo_branches = branches.select { |b| b !~ /master.*/ }
     @repo_branches.count

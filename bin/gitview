@@ -25,7 +25,8 @@ puts "Repo user name: #{@g.repo_user}"
 puts "Repo user email: #{@g.repo_email}"
 puts ""
 puts "Remote repo(s):"
-@g.repo_remotes
+@g.repo_remotes.each { |r| puts "#{r}" }
+#@g.repo_remotes
 puts ""
 puts "Number of non-master branches: #{@g.repo_branches}"
 puts ""
