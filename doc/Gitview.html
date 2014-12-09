@@ -169,7 +169,7 @@
           <div class="method-source-code" id="git_version-source">
             <pre><span class="ruby-comment"># File lib/gitview.rb, line 28</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">git_version</span>
-  <span class="ruby-ivar">@git_version</span> = <span class="ruby-value">%xgit --version`</span>.<span class="ruby-identifier">chomp</span> <span class="ruby-comment">#needs test</span>
+  <span class="ruby-ivar">@git_version</span> = <span class="ruby-value">%xgit --version`</span>.<span class="ruby-identifier">chomp</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -200,8 +200,8 @@
 
           
           <div class="method-source-code" id="repo_branches-source">
-            <pre><span class="ruby-comment"># File lib/gitview.rb, line 73</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">repo_branches</span>  <span class="ruby-comment"># needs testing</span>
+            <pre><span class="ruby-comment"># File lib/gitview.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">repo_branches</span>
   <span class="ruby-identifier">branches</span> = <span class="ruby-value">%xgit branch`</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/\n/</span>)
   <span class="ruby-ivar">@repo_branches</span> = <span class="ruby-identifier">branches</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">b</span> <span class="ruby-operator">!~</span> <span class="ruby-regexp">/master.*/</span> }
   <span class="ruby-ivar">@repo_branches</span>.<span class="ruby-identifier">count</span>
@@ -235,7 +235,7 @@
 
           
           <div class="method-source-code" id="repo_commits-source">
-            <pre><span class="ruby-comment"># File lib/gitview.rb, line 79</span>
+            <pre><span class="ruby-comment"># File lib/gitview.rb, line 77</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">repo_commits</span>
   <span class="ruby-identifier">@@repo_commits</span> = <span class="ruby-value">%xgit log master --no-merges --reverse --format=&quot;%ai&quot;`</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/\n/</span>)
   <span class="ruby-identifier">@@repo_commits</span>.<span class="ruby-identifier">count</span>
@@ -269,7 +269,7 @@
 
           
           <div class="method-source-code" id="repo_committers-source">
-            <pre><span class="ruby-comment"># File lib/gitview.rb, line 112</span>
+            <pre><span class="ruby-comment"># File lib/gitview.rb, line 110</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">repo_committers</span>
   <span class="ruby-comment"># take output of git shortlog -sn and truncate to array with first 3 lines</span>
   <span class="ruby-identifier">committers</span> = <span class="ruby-value">%xgit shortlog -sn`</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/\n/</span>)
@@ -420,7 +420,7 @@
 
           
           <div class="method-source-code" id="repo_firstcommit-source">
-            <pre><span class="ruby-comment"># File lib/gitview.rb, line 84</span>
+            <pre><span class="ruby-comment"># File lib/gitview.rb, line 82</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">repo_firstcommit</span>
   <span class="ruby-comment"># let&#39;s reuse the class variable @@repo_commits</span>
   <span class="ruby-identifier">@@repo_commits</span>.<span class="ruby-identifier">first</span>
@@ -454,7 +454,7 @@
 
           
           <div class="method-source-code" id="repo_lastcommit-source">
-            <pre><span class="ruby-comment"># File lib/gitview.rb, line 89</span>
+            <pre><span class="ruby-comment"># File lib/gitview.rb, line 87</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">repo_lastcommit</span>
   <span class="ruby-comment"># let&#39;s reuse the class variable @@repo_commits</span>
   <span class="ruby-identifier">@@repo_commits</span>.<span class="ruby-identifier">last</span>
@@ -488,7 +488,7 @@
 
           
           <div class="method-source-code" id="repo_leastchanged-source">
-            <pre><span class="ruby-comment"># File lib/gitview.rb, line 106</span>
+            <pre><span class="ruby-comment"># File lib/gitview.rb, line 104</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">repo_leastchanged</span>
   <span class="ruby-comment"># let&#39;s reuse our deduped array from repo_mostchanged()</span>
   <span class="ruby-identifier">lc</span> = <span class="ruby-identifier">@@allchanged</span>.<span class="ruby-identifier">first</span>(<span class="ruby-value">3</span>).<span class="ruby-identifier">reverse</span>
@@ -523,7 +523,7 @@
 
           
           <div class="method-source-code" id="repo_mostchanged-source">
-            <pre><span class="ruby-comment"># File lib/gitview.rb, line 94</span>
+            <pre><span class="ruby-comment"># File lib/gitview.rb, line 92</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">repo_mostchanged</span>
   <span class="ruby-comment"># here&#39;s how to do this using shell utils with system call:</span>
   <span class="ruby-comment">#@repo_mostchanged = `git log master --pretty=format: --name-only|grep -i [a-z]|sort|uniq -c |sort -rg|head -3`</span>
@@ -602,8 +602,6 @@
             <pre><span class="ruby-comment"># File lib/gitview.rb, line 67</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">repo_remotes</span>
   <span class="ruby-ivar">@repo_remotes</span> = <span class="ruby-value">%xgit remote -v`</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/\n/</span>)
-  <span class="ruby-ivar">@repo_remotes</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{r}&quot;</span> }
-  <span class="ruby-ivar">@repo_remotes</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
