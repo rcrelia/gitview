@@ -6,4 +6,6 @@ rvm:
 
 install: bundle install --binstubs
 env: TRAVIS_BUILD=true
+env: CODECLIMATE_REPO_TOKEN=2478b148bbfd3b911b96fb8caaea4ce27fbc9804f9b3047a619381d52b297950
 script: bundle exec rspec
+
