@@ -1,6 +1,6 @@
 # gitview 
 
-[![Gem Version](https://badge.fury.io/rb/gitview.svg)](http://badge.fury.io/rb/gitview) [![Build Status](https://travis-ci.org/rcrelia/gitview.svg?branch=master)](https://travis-ci.org/rcrelia/gitview) [![Code Climate](https://codeclimate.com/github/rcrelia/gitview/badges/gpa.svg)](https://codeclimate.com/github/rcrelia/gitview) [![Test Coverage](https://codeclimate.com/github/rcrelia/gitview/badges/coverage.svg)](https://codeclimate.com/github/rcrelia/gitview)
+[![Gem Version](https://badge.fury.io/rb/gitview.svg)](http://badge.fury.io/rb/gitview) - [![Build Status](https://travis-ci.org/rcrelia/gitview.svg?branch=master)](https://travis-ci.org/rcrelia/gitview) - [![Code Climate](https://codeclimate.com/github/rcrelia/gitview/badges/gpa.svg)](https://codeclimate.com/github/rcrelia/gitview) - [![Test Coverage](https://codeclimate.com/github/rcrelia/gitview/badges/coverage.svg)](https://codeclimate.com/github/rcrelia/gitview)
 
 ## Description
 
