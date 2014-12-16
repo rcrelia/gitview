@@ -4,6 +4,10 @@
 
 [![Build Status](https://travis-ci.org/rcrelia/gitview.svg?branch=master)](https://travis-ci.org/rcrelia/gitview)
 
+[![Code Climate](https://codeclimate.com/github/rcrelia/gitview/badges/gpa.svg)](https://codeclimate.com/github/rcrelia/gitview)
+
+[![Test Coverage](https://codeclimate.com/github/rcrelia/gitview/badges/coverage.svg)](https://codeclimate.com/github/rcrelia/gitview)
+
 ## Description
 
 Sometimes it's nice to see a terminal screen's worth of stats about a git repo without having to type a bunch of git commands or even look up specifics about said git commands. gitview was created to scratch this particular itch (and also help me learn about making my own Gems). Hopefully, you will find it helpful. 
