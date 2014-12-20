@@ -65,6 +65,10 @@ Here's an example using the local copy of my gitview repo
 
     ------------------------------------------------------------------------
 
+## Todo
+
+- Add command line argument processing
+- Email reporting
 
 ## Development
 
